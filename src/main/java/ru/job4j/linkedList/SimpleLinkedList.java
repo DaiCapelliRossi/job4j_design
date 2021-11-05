@@ -11,17 +11,9 @@ public class SimpleLinkedList<E> implements List<E> {
     transient Node<E> first;
     transient Node<E> last;
 
-    private Node<E>[] container;
-
-    public SimpleLinkedList() {
-        this.container = new Node[5];
-    }
 
     @Override
     public void add(E value) {
-        if (size >= container.length) {
-            container = Arrays.copyOf(container, container.length * 2);
-        }
         final Node<E> l = last;
         final Node<E> newNode = new Node<>(l, value, null);
         last = newNode;
@@ -30,26 +22,29 @@ public class SimpleLinkedList<E> implements List<E> {
         } else {
             l.next = newNode;
         }
-        container[size] = newNode;
         size++;
         modCount++;
     }
 
     @Override
     public E get(int index) {
+        Node<E> f = first;
         Objects.checkIndex(index, size);
-        return container[index].item;
+        for (int i = 0; i < index; i++) {
+            f = f.next;
+        }
+        return f.item;
     }
 
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
-            int point = 0;
             final int expectedModCount = modCount;
+            SimpleLinkedList.Node<E> node = first;
 
             @Override
             public boolean hasNext() {
-                return point < size;
+                return (node != null);
             }
 
             @Override
@@ -61,8 +56,9 @@ public class SimpleLinkedList<E> implements List<E> {
                 if (expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-
-                return container[point++].item;
+                E e = node.item;
+                node = node.next;
+                return e;
             }
         };
     }
