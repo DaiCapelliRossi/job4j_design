@@ -30,12 +30,12 @@ public class User {
         User user1 = new User("Paul", 2, new GregorianCalendar(1994, 2, 26));
         User user2 = new User("Paul", 2, new GregorianCalendar(1994, 2, 26));
 
-        Map<User, Object> map = new HashMap<>();
+        /*Map<User, Object> map = new HashMap<>();
         map.put(user1, new Object());
         map.put(user2, new Object());
         for (Map.Entry<User, Object> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
-        }
+        }*/
         System.out.println(user1.hashCode() == user2.hashCode());
     }
 }

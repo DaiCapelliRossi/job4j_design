@@ -27,7 +27,6 @@ public class MatrixIt implements Iterator<Integer> {
             throw new NoSuchElementException();
         }
 
-
         if (row < data.length - 1 && column == data[row].length - 1) {
             int i = column;
             return data[row++][(column -= i) + i];
