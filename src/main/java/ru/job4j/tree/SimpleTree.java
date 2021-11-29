@@ -24,20 +24,26 @@ public class SimpleTree<E> implements Tree<E> {
         return rsl;
     }
 
-    @Override
-    public Optional<Node<E>> findBy(E value) {
-        Optional<Node<E>> rsl = Optional.empty();
+    private Optional<Node<E>> findByPredicate(Predicate<Node<E>> condition) {
         Queue<Node<E>> data = new LinkedList<>();
         data.offer(this.root);
         while (!data.isEmpty()) {
             Node<E> el = data.poll();
-            if (el.value.equals(value)) {
-                rsl = Optional.of(el);
-                break;
-            }
+            if (condition.test(el)) {
+                return Optional.of(el);
+            };
             data.addAll(el.children);
         }
-        return rsl;
+        return Optional.empty();
     }
 
+    @Override
+    public boolean isBinary() {
+        return findByPredicate(parent -> parent.children.size() > 2).isEmpty();
+    }
+
+    @Override
+    public Optional<Node<E>> findBy(E value) {
+        return findByPredicate(x -> x.value.equals(value));
+    }
 }
