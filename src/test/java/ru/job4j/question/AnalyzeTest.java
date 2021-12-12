@@ -1,4 +1,4 @@
-package question;
+package ru.job4j.question;
 
 import org.junit.Test;
 
