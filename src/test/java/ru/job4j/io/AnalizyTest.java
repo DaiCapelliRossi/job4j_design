@@ -3,13 +3,11 @@ package ru.job4j.io;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.*;
-import java.util.List;
 
 public class AnalizyTest {
 
