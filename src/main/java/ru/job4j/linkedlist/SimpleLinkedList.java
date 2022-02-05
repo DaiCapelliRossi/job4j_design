@@ -1,6 +1,4 @@
-package ru.job4j.linkedList;
-
-import org.w3c.dom.Node;
+package ru.job4j.linkedlist;
 
 import java.util.*;
 

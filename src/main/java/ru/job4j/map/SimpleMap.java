@@ -34,7 +34,9 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     private int hash(int hashCode) {
         int h;
+        //CHECKSTYLE:OFF
         return ((hashCode == 0) ? 0 : (h = hashCode) ^ (h >>> 16));
+        //CHECKSTYLE:ON
     }
 
     private int indexFor(int hash) {
@@ -87,7 +89,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
             count--;
             modCount++;
             return true;
-        } 
+        }
         return false;
     }
 
@@ -143,19 +145,19 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     public static void main(String[] args) {
         SimpleMap<Integer, String> map = new SimpleMap<>();
-        map.put(0,"A");
-        map.put(1,"B");
-        map.put(2,"C");
-        map.put(3,"F");
-        map.put(4,"G");
-        map.put(5,"H");
-        map.put(6,"I");
-        map.put(7,"J");
-        map.put(8,"K");
-        map.put(9,"L");
-        map.put(10,"M");
-        map.put(11,"N");
-        map.put(12,"N");
+        map.put(0, "A");
+        map.put(1, "B");
+        map.put(2, "C");
+        map.put(3, "F");
+        map.put(4, "G");
+        map.put(5, "H");
+        map.put(6, "I");
+        map.put(7, "J");
+        map.put(8, "K");
+        map.put(9, "L");
+        map.put(10, "M");
+        map.put(11, "N");
+        map.put(12, "N");
         for (Integer entry : map) {
             System.out.println(entry);
         }

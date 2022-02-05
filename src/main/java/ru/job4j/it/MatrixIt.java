@@ -29,9 +29,11 @@ public class MatrixIt implements Iterator<Integer> {
 
         if (row < data.length - 1 && column == data[row].length - 1) {
             int i = column;
+            //CHECKSTYLE:OFF
             return data[row++][(column -= i) + i];
+            //CHECKSTYLE:ONinss
         }
-            return data[row][column++];
+        return data[row][column++];
     }
 
     public static void main(String[] args) {

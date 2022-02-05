@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
+
 import static org.junit.Assert.*;
 
 public class SimpleMapTest {
@@ -13,7 +14,7 @@ public class SimpleMapTest {
     SimpleMap<Integer, String> map = new SimpleMap<>();
 
     @Before
-    public void InitData() {
+    public void initData() {
         map.put(1, "kitten");
         map.put(3, "doggy");
     }
@@ -65,20 +66,20 @@ public class SimpleMapTest {
 
     @Test
     public void whenExpand() {
-        map.put(0,"A");
-        map.put(1,"B");
-        map.put(2,"C");
-        map.put(4,"F");
-        map.put(5,"G");
-        map.put(6,"H");
-        map.put(7,"I");
-        map.put(8,"J");
-        map.put(9,"K");
-        map.put(10,"L");
-        map.put(11,"M");
-        map.put(12,"N");
+        map.put(0, "A");
+        map.put(1, "B");
+        map.put(2, "C");
+        map.put(4, "F");
+        map.put(5, "G");
+        map.put(6, "H");
+        map.put(7, "I");
+        map.put(8, "J");
+        map.put(9, "K");
+        map.put(10, "L");
+        map.put(11, "M");
+        map.put(12, "N");
         Assert.assertEquals("M", map.get(11));
-        Assert.assertEquals("V", map.get(12));
+        Assert.assertEquals("N", map.get(12));
     }
 
 }

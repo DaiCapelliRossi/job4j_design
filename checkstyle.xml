@@ -90,6 +90,7 @@
         <!--<module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
+        <module name="SuppressionCommentFilter"/>
 
     </module>
 
