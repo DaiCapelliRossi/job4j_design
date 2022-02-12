@@ -9,7 +9,7 @@ public class ArgsName {
 
     public String get(String key) {
         if (!values.containsKey(key)) {
-            throw new IllegalArgumentException("This key does not exist");
+            throw new IllegalArgumentException("Key " + key + " is not parametrized");
         }
         return values.get(key);
     }
