@@ -27,5 +27,11 @@ public class UsageLog4j {
         LOG.debug("User Info name: {}, age: {}, sex: {}, weight: {}, height: {}, hasJob: {}, salary: {}, work_exp: {}, savings: {}",
                 name, age, sex, weight, height, hasJob, salary, work_exp, savings);
 
+        try {
+            throw new Exception("Not supported code");
+        } catch (Exception e) {
+            LOG.error("Exception in log example", e);
+        }
+
     }
 }
